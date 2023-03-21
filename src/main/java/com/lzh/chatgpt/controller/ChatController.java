@@ -24,9 +24,10 @@ import java.util.regex.Pattern;
  */
 @RestController
 public class ChatController {
-    @Value("${openai.token}")
-    String token;
-    OpenAiService openAiService = new OpenAiService("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");
+    /**
+     * 填入自己的api key
+     */
+    OpenAiService openAiService = new OpenAiService("sk-********************************************************");
 
     @PostMapping("/api/chat")
     public String sendMessage(@RequestBody String message) {

@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 
 public class OpenAiService {
 
-    private static String BASE_URL="https://openapi.fit/";
+    private static String BASE_URL="https://自己的域名地址/";
 //    private static final String MY_BASE_URL = "https://openapi.fit/";
     private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(60);
     private static final ObjectMapper errorMapper = defaultObjectMapper();
