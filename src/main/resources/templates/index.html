@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 80vh;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        .chat-message {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .chat-message-reverse {
+            justify-content: flex-end;
+        }
+
+        .chat-message-content {
+            max-width: 60%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .chat-message-content-reverse {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .chat-avatar-reverse {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        .chat-input {
+            display: flex;
+            margin-top: 20px;
+            width: 500px;
+            height: 50px;
+            left:50%;
+            top:50%;
+            margin-left:100px;
+        }
+
+        .chat-input-field {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .chat-input-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .chat-title {
+            text-align: center;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .chat-message-author {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="chat-container">
+    <!-- 示例消息 -->
+    <div class="chat-message">
+        <img src="https://via.placeholder.com/50" alt="User Avatar" class="chat-avatar">
+        <div class="chat-message-content">Hello, how can I help you?</div>
+    </div>
+
+<!--    <div class="chat-message chat-message-reverse">-->
+<!--        <div class="chat-message-content chat-message-content-reverse">Hi, I have a question about your product.</div>-->
+<!--        <img src="https://via.placeholder.com/50" alt="Chatbot Avatar" class="chat-avatar chat-avatar-reverse">-->
+<!--    </div>-->
+
+<!--    <div class="chat-message">-->
+<!--        <img src="https://via.placeholder.com/50" alt="User Avatar" class="chat-avatar">-->
+<!--        <div class="chat-message-content">Can you tell me your product?</div>-->
+<!--    </div>-->
+</div>
+<div class="chat-input ">
+    <input type="text" id="chat-input-field" placeholder="Type your message...">
+    <button id="chat-input-button">Send</button>
+</div>
+
+<script>
+    const chatContainer = document.getElementById('chat-container');
+    const chatInputField = document.getElementById('chat-input-field');
+    const chatInputButton = document.getElementById('chat-input-button');
+
+    // 后端接口URL
+    const apiUrl = 'http://localhost:8082/api/chat';
+
+    // 发送消息到后端接口
+    const sendMessage = async (message) => {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'message':message
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send message to server');
+        }
+
+        const data = await response.json();
+        return data;
+    };
+
+    // 显示聊天消息
+    const displayMessage = (message, isBot) => {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message');
+        if (isBot) {
+            messageElement.classList.add('chat-message-reverse');
+            const avatarElement = document.createElement('img');
+            avatarElement.src = 'https://via.placeholder.com/50';
+            avatarElement.alt = 'Chatbot Avatar';
+            avatarElement.classList.add('chat-avatar', 'chat-avatar-reverse');
+            messageElement.appendChild(avatarElement);
+        } else {
+            const avatarElement = document.createElement('img');
+            avatarElement.src = 'https://via.placeholder.com/50';
+            avatarElement.alt = 'User Avatar';
+            avatarElement.classList.add('chat-avatar');
+            messageElement.appendChild(avatarElement);
+        }
+
+        const messageContentElement = document.createElement('div');
+        messageContentElement.classList.add('chat-message-content');
+        if (isBot) {
+            messageContentElement.classList.add('chat-message-content-reverse');
+        }
+        messageContentElement.innerText = message;
+        messageElement.appendChild(messageContentElement);
+
+        chatContainer.appendChild(messageElement);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    };
+
+    // 发送消息按钮的点击事件
+    chatInputButton.addEventListener('click', async () => {
+        const message = chatInputField.value.trim();
+        if (message === '') {
+            return;
+        }
+
+        chatInputField.value = '';
+        displayMessage(message, false);
+
+        try {
+            const response = await sendMessage(message);
+            displayMessage(response, true);
+        } catch (error) {
+            console.error(error);
+            alert('Failed to send message');
+        }
+    });
+</script>
+</body>
+</html>
+

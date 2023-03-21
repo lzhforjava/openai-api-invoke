@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>菜单</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F9F9F9;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .menu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .menu-item-image {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .menu-item-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-item-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            color: #333333;
+        }
+
+        .menu-item-description {
+            font-size: 16px;
+            margin: 0;
+            color: #666666;
+        }
+
+        .menu-item-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+<h1>菜单</h1>
+<div class="container">
+    <div class="menu-item">
+        <img class="menu-item-image" src="https://via.placeholder.com/150" alt="菜品图片">
+        <div class="menu-item-content">
+            <h2 class="menu-item-name">菜品名称</h2>
+            <p class="menu-item-description">这里是菜品描述，可以写一些关于菜品的介绍或特点。</p>
+            <p class="menu-item-price">$10.99</p>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img class="menu-item-image" src="https://via.placeholder.com/150" alt="菜品图片">
+        <div class="menu-item-content">
+            <h2 class="menu-item-name">菜品名称</h2>
+            <p class="menu-item-description">这里是菜品描述，可以写一些关于菜品的介绍或特点。</p>
+            <p class="menu-item-price">$12.99</p>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img class="menu-item-image" src="https://via.placeholder.com/150" alt="菜品图片">
+        <div class="menu-item-content">
+            <h2 class="menu-item-name">菜品名称</h2>
+            <p class="menu-item-description">这里是菜品描述，可以写一些关于菜品的介绍或特点。</p>
+            <p class="menu-item-price">$8.99</p>
+        </div>
+    </div>
+    <div class="menu-item">
+        <img class="menu-item-image" src="https://via.placeholder.com/150" alt="菜品图片">
+        <div class="menu-item-content">
+            <h2 class="menu-item-name">菜品名称</h2>
+            <p class="menu-item-description">这里是菜品描述，可以写一些关于菜品的介绍或特点。</p>
+            <p class="menu-item-price">$9.99</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
