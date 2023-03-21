@@ -2,7 +2,7 @@
 - - -
 强调一下，作者自己是免费用户，因为用免费api-key调用一直connect time out，[这里记录一下解决办法](https://github.com/noobnooc/noobnooc/discussions/9)。  
 **如果你有别的解决办法可以联系我，或者你有好的交流群可以拉我一下，互相学习**  
-![weixin.png](src/main/resources/static/weixin.png )
+![weixin](https://user-images.githubusercontent.com/64308460/226585700-80f885cc-f980-4c1d-964b-eaa8ed63cc8b.png)
 [提示：作者购买的阿里云域名](https://wanwang.aliyun.com/domain/searchresult/#/?keyword=openai&suffix=.com)映射到[cloudflare](https://dash.cloudflare.com/)
 ***************
 ## 项目介绍
@@ -27,7 +27,7 @@
 ************************************************************************************************************
 ## 页面
 - - -
-![project.png](src%2Fmain%2Fresources%2Fstatic%2Fproject.png)
+![project](https://user-images.githubusercontent.com/64308460/226585747-058f62c3-afd8-40a6-b6c6-eedd9a5ee86d.png)
 html页面很low，可以实现简单的文本发送，点击send按钮发送文本，本例中未实现回车事件。
 ************************************************************************************************************
 ### 简单案例
