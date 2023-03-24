@@ -1,6 +1,6 @@
 # 介绍
 - - -
-强调一下，作者自己是免费用户，因为用免费api-key调用一直connect time out，[这里记录一下解决办法](https://github.com/noobnooc/noobnooc/discussions/9)。  
+国内无法调用api，[这里记录一下解决办法](https://github.com/noobnooc/noobnooc/discussions/9)。  
 **如果你有别的解决办法可以联系我，或者你有好的交流群可以拉我一下，互相学习**  
 ![weixin.png](src/main/resources/static/weixin.png )
 [提示：作者购买的阿里云域名](https://wanwang.aliyun.com/domain/searchresult/#/?keyword=openai&suffix=.com)映射到[cloudflare](https://dash.cloudflare.com/)
