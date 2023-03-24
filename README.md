@@ -1,6 +1,6 @@
 # 介绍
 - - -
-强调一下，作者自己是免费用户，因为用免费api-key调用一直connect time out，[这里记录一下解决办法](https://github.com/noobnooc/noobnooc/discussions/9)。  
+国内无法调用api，[这里记录一下解决办法](https://github.com/noobnooc/noobnooc/discussions/9)。  
 **如果你有别的解决办法可以联系我，或者你有好的交流群可以拉我一下，互相学习**  
 ![weixin](https://user-images.githubusercontent.com/64308460/226585700-80f885cc-f980-4c1d-964b-eaa8ed63cc8b.png)
 [提示：作者购买的阿里云域名](https://wanwang.aliyun.com/domain/searchresult/#/?keyword=openai&suffix=.com)映射到[cloudflare](https://dash.cloudflare.com/)
@@ -19,7 +19,7 @@
 *******
 ## 启动该项目
 - - -
-+ 本项目由于免费api-key connect time out，所以没有导入依赖，而是将项目源码拿了过来稍作修改。
++ 本项目由于免费api-key，所以没有导入依赖，而是将项目源码拿了过来稍作修改。
 + [OpenAiService中的BASE_URL修改为自己的代理域名](https://github.com/lzhforjava/openai-api-invoke/blob/master/src/main/java/com/lzh/chatgpt/service/OpenAiService.java)；
 + [ChatController中](https://github.com/lzhforjava/openai-api-invoke/blob/master/src/main/java/com/lzh/chatgpt/controller/ChatController.java)new OpenAiService("sk-********************************************************")的api-key替换为自己的；
 + 项目启动类[OpenaiApiInvokeApplication.java](https://github.com/lzhforjava/openai-api-invoke/blob/master/src/main/java/com/lzh/chatgpt/OpenaiApiInvokeApplication.java)；
